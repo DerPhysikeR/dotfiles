@@ -69,7 +69,7 @@ set tabstop=4        " size of hardtabs in spaces
 set softtabstop=4    " size of soft tabstop in spaces
 set shiftwidth=4     " size of an indent
 set expandtab        " expand tabs to spaces
-set textwidth=80     " break line  after 115 symbols
+set textwidth=79     " break line  after 79 symbols
 set formatoptions=tcr " add a for automatic text reflow; Inteferes with surroud.vim
 set confirm          " requires confirmation for some commands
 set hidden           " change buffer without saving
