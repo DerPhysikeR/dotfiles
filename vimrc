@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 " Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-system-copy'
 Plug 'flazz/vim-colorschemes'
