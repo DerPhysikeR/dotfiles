@@ -22,6 +22,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 " https://www.youtube.com/watch?v=wlR5gYd6um0
