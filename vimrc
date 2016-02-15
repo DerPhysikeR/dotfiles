@@ -51,6 +51,7 @@ let g:slime_python_ipython = 1
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " sane pane navigation
 nnoremap <c-j> <c-w>j
