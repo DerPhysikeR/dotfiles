@@ -59,6 +59,19 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" taken from http://vim.wikia.com/wiki/Search_for_visually_selected_text
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
 " already in vim-sensible
 " syntax on
 " filetype plugin indent on
@@ -75,7 +88,7 @@ set softtabstop=4    " size of soft tabstop in spaces
 set shiftwidth=4     " size of an indent
 set expandtab        " expand tabs to spaces
 set textwidth=79     " break line  after 79 symbols
-set formatoptions=tcr " add a for automatic text reflow; Inteferes with surroud.vim
+set formatoptions=tcr " add a for automatic text reflow; Interferes with surroud.vim
 set confirm          " requires confirmation for some commands
 set hidden           " change buffer without saving
 
