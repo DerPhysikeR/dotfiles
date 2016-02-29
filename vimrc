@@ -42,7 +42,11 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
+" let g:syntastic_toggle_mode = 1
 let g:syntastic_check_on_wq = 0
+autocmd VimEnter * SyntasticToggleMode " disable syntastic by default
+" switch syntastic off and on with "ST"
+:command ST SyntasticToggleMode 
 
 " vim-slime
 let g:slime_target = "tmux"
