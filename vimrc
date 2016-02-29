@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-" Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'christoomey/vim-sort-motion'
@@ -16,6 +15,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nvie/vim-flake8'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
 Plug 'takac/vim-hardtime'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
@@ -35,14 +35,14 @@ if has('nvim')
   runtime! plugin/python_setup.vim
 endif
 
-" " syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 0
 
 " vim-slime
 let g:slime_target = "tmux"
