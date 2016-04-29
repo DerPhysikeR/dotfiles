@@ -34,10 +34,13 @@ call plug#end()
 " let g:python_host_skip_check = 1
 
 if has('nvim')
+  " terrible workaround for <C-h> bug
+  nmap <BS> <C-W>h
+  tnoremap <Esc> <C-\><C-n>
   runtime! plugin/python_setup.vim
   " https://www.reddit.com/r/neovim/comments/3nuyt7/python_dev_plugins/
   let g:neomake_python_enabled_makers = ['flake8', 'pep8', 'pylint']
-  autocmd! BufWritePost * Neomake
+  " autocmd! BufWritePost * Neomake
 endif
 
 " syntastic
@@ -102,6 +105,8 @@ set formatoptions=tcr " add a for automatic text reflow; Interferes with surroud
 set confirm          " requires confirmation for some commands
 set hidden           " change buffer without saving
 let mapleader = "\<Space>"
+noremap <Leader>M :Neomake!<CR>
+noremap <Leader>m :Neomake<CR>
 
 " http://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
 " Let's save undo info!
