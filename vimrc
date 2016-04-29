@@ -5,6 +5,7 @@ Plug 'benekastah/neomake'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-system-copy'
 Plug 'davidhalter/jedi-vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'flazz/vim-colorschemes'
 Plug 'freitass/todo.txt-vim'
 Plug 'honza/vim-snippets'
@@ -100,6 +101,7 @@ set textwidth=79     " break line  after 79 symbols
 set formatoptions=tcr " add a for automatic text reflow; Interferes with surroud.vim
 set confirm          " requires confirmation for some commands
 set hidden           " change buffer without saving
+let mapleader = "\<Space>"
 
 " http://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
 " Let's save undo info!
