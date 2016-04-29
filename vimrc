@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'benekastah/neomake'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-system-copy'
 Plug 'davidhalter/jedi-vim'
@@ -33,6 +34,9 @@ call plug#end()
 
 if has('nvim')
   runtime! plugin/python_setup.vim
+  " https://www.reddit.com/r/neovim/comments/3nuyt7/python_dev_plugins/
+  let g:neomake_python_enabled_makers = ['flake8', 'pep8', 'pylint']
+  autocmd! BufWritePost * Neomake
 endif
 
 " syntastic
