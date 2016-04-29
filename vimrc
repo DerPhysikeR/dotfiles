@@ -18,6 +18,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'nvie/vim-flake8'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'sjl/gundo.vim'
 Plug 'takac/vim-hardtime'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
@@ -107,6 +108,7 @@ set hidden           " change buffer without saving
 let mapleader = "\<Space>"
 noremap <Leader>M :Neomake!<CR>
 noremap <Leader>m :Neomake<CR>
+noremap <Leader>u :GundoToggle<CR>
 
 " http://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
 " Let's save undo info!
