@@ -97,16 +97,16 @@ vnoremap <silent> # :<C-U>
 " set history=1000     "set command history to 1000
 
 colorscheme jellybeans
-set number           " set line numbers
-set relativenumber   " set relative line numbering to current cursor position
-set tabstop=4        " size of hardtabs in spaces
-set softtabstop=4    " size of soft tabstop in spaces
-set shiftwidth=4     " size of an indent
-set expandtab        " expand tabs to spaces
-set textwidth=79     " break line  after 79 symbols
+set number            " set line numbers
+set relativenumber    " set relative line numbering to current cursor position
+set tabstop=4         " size of hardtabs in spaces
+set softtabstop=4     " size of soft tabstop in spaces
+set shiftwidth=4      " size of an indent
+set expandtab         " expand tabs to spaces
+set textwidth=79      " break line  after 79 symbols
 set formatoptions=tcr " add a for automatic text reflow; Interferes with surroud.vim
-set confirm          " requires confirmation for some commands
-set hidden           " change buffer without saving
+set confirm           " requires confirmation for some commands
+set hidden            " change buffer without saving
 let mapleader = "\<Space>"
 noremap <Leader>M :Neomake!<CR>
 noremap <Leader>m :Neomake<CR>
