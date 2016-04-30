@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-system-copy'
@@ -110,6 +111,8 @@ let mapleader = "\<Space>"
 noremap <Leader>M :Neomake!<CR>
 noremap <Leader>m :Neomake<CR>
 noremap <Leader>u :GundoToggle<CR>
+noremap <Leader>GG :GitGutterToggle<CR>
+let g:gitgutter_enabled = 0
 
 " http://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
 " Let's save undo info!
