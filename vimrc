@@ -110,6 +110,7 @@ set textwidth=79      " break line  after 79 symbols
 set formatoptions=tcr " add a for automatic text reflow; Interferes with surroud.vim
 set confirm           " requires confirmation for some commands
 set hidden            " change buffer without saving
+set sidescroll=1      " incremental horizontal scrolling
 let mapleader = "\<Space>"
 noremap <Leader>M :Neomake!<CR>
 noremap <Leader>m :Neomake<CR>
