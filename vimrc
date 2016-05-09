@@ -111,6 +111,8 @@ set formatoptions=tcr " add a for automatic text reflow; Interferes with surroud
 set confirm           " requires confirmation for some commands
 set hidden            " change buffer without saving
 set sidescroll=1      " incremental horizontal scrolling
+set splitbelow
+set splitright
 let mapleader = "\<Space>"
 noremap <Leader>M :Neomake!<CR>
 noremap <Leader>m :Neomake<CR>
