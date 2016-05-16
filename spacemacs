@@ -28,6 +28,7 @@ values."
      eyebrowse
      games
      git
+     latex
      markdown
      org
      python
