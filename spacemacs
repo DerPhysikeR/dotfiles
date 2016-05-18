@@ -34,7 +34,9 @@ values."
      python
      ranger
      shell
-     spell-checking
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil
+                     spell-checking-enable-auto-dictionary t)
      syntax-checking
      themes-megapack
      xkcd
