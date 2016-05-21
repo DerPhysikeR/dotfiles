@@ -260,6 +260,18 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
   )
-
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (ipython . t)
+     (R . t)
+     (emacs-lisp . t)
+     (python . t)
+     (sh . t)
+     (latex . t)
+     (gnuplot . t)
+     ))
+  )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
