@@ -31,7 +31,8 @@ values."
      latex
      markdown
      org
-     python
+     (python :variables
+             python-test-runner 'pytest)
      ranger
      shell
      (spell-checking :variables
