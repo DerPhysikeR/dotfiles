@@ -265,6 +265,10 @@ you should place you code here."
     (setq paragraph-start "\f\\|[   ]*$")
     (setq paragraph-separate "[     \f]*$"))
   (add-hook 'LaTeX-mode-hook 'my-LaTeX-mode-hook)
+
+  ;; disable smartparens
+  (remove-hook 'prog-mode-hook #'smartparens-mode)
+  (spacemacs/toggle-smartparens-globally-off)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
