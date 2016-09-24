@@ -261,6 +261,10 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
   ;; For python
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (defun my-LaTeX-mode-hook()
+    (setq paragraph-start "\f\\|[   ]*$")
+    (setq paragraph-separate "[     \f]*$"))
+  (add-hook 'LaTeX-mode-hook 'my-LaTeX-mode-hook)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
