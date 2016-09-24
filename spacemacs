@@ -259,8 +259,11 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
-  ;; For python
+
+  ;; python word object definition
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+  ;; latex paragraph object definition
   (defun my-LaTeX-mode-hook()
     (setq paragraph-start "\f\\|[   ]*$")
     (setq paragraph-separate "[     \f]*$"))
