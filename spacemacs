@@ -31,6 +31,7 @@ values."
      latex
      markdown
      org
+     pdf-tools
      python
      ranger
      shell
