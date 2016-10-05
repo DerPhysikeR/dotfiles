@@ -50,7 +50,9 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      org-wunderlist
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -272,7 +274,14 @@ you should place you code here."
   ;; disable smartparens
   (remove-hook 'prog-mode-hook #'smartparens-mode)
   (spacemacs/toggle-smartparens-globally-off)
-  )
+
+  ;; wunderlist
+  (require 'org-wunderlist)
+  (setq org-wunderlist-client-id "4612b8ba2bfca55cce5f"
+        org-wunderlist-token "8dbdbd8d8aadaa71556288534afa0fcf77b471c3685e0ce671ce00c48acd"
+        org-wunderlist-file  "~/Dropbox/org/wunderlist.org"
+        org-wunderlist-dir "~/Dropbox/org/org-wunderlist/")
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
