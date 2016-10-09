@@ -65,7 +65,9 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      org-wunderlist
+                                      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -324,6 +326,13 @@ you should place your code here."
 
   ;; increase docview resolution
   (setq doc-view-resolution 144)
+
+  ;; wunderlist
+  (require 'org-wunderlist)
+  (setq org-wunderlist-client-id "4612b8ba2bfca55cce5f"
+     org-wunderlist-token "8dbdbd8d8aadaa71556288534afa0fcf77b471c3685e0ce671ce00c48acd"
+     org-wunderlist-file  "~/Dropbox/org/wunderlist.org"
+     org-wunderlist-dir "~/Dropbox/org/org-wunderlist/")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
