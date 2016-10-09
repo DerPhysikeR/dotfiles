@@ -321,6 +321,9 @@ you should place your code here."
   ;; disable smartparens
   (remove-hook 'prog-mode-hook #'smartparens-mode)
   (spacemacs/toggle-smartparens-globally-off)
+
+  ;; increase docview resolution
+  (setq doc-view-resolution 144)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
