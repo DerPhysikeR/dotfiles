@@ -43,11 +43,13 @@ values."
      games
      git
      helm
+     ipython-notebook
      latex
      markdown
      org
-     pdf-tools
-     python
+     (python :variables
+             python-test-runner 'pytest)
+     ;; pdf-tools
      ranger
      shell
      ;; (shell :variables
@@ -322,6 +324,5 @@ you should place your code here."
   (remove-hook 'prog-mode-hook #'smartparens-mode)
   (spacemacs/toggle-smartparens-globally-off)
 )
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
