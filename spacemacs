@@ -44,7 +44,9 @@ values."
      git
      helm
      ipython-notebook
-     latex
+     (latex :variables
+            latex-enable-auto-fill nil
+            latex-enable-folding t)
      markdown
      org
      ;; pdf-tools
