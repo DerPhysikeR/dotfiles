@@ -47,9 +47,9 @@ values."
      latex
      markdown
      org
-     (python :variables
-             python-test-runner 'pytest)
      ;; pdf-tools
+     (python :variables
+             python-test-runner '(pytest nose))
      ranger
      shell
      ;; (shell :variables
