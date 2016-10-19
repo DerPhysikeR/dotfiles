@@ -39,7 +39,6 @@ values."
      auto-completion
      better-defaults
      emacs-lisp
-     eyebrowse
      games
      git
      helm
