@@ -38,6 +38,7 @@ values."
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
+     csv
      emacs-lisp
      games
      git
