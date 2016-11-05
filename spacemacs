@@ -40,6 +40,7 @@ values."
      better-defaults
      csv
      emacs-lisp
+     finance
      games
      git
      helm
