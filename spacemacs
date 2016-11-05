@@ -39,6 +39,7 @@ values."
      auto-completion
      better-defaults
      emacs-lisp
+     finance
      games
      git
      helm
