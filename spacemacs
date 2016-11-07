@@ -44,6 +44,7 @@ values."
      games
      git
      helm
+     html
      ipython-notebook
      javascript
      (latex :variables
