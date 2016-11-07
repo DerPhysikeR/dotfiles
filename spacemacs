@@ -51,7 +51,8 @@ values."
             latex-enable-auto-fill nil
             latex-enable-folding t)
      markdown
-     org
+     (org :variables
+          org-enable-reveal-js-support t)
      pdf-tools
      (python :variables
              python-test-runner '(pytest nose))
