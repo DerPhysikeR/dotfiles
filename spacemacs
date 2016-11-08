@@ -44,13 +44,15 @@ values."
      games
      git
      helm
+     html
      ipython-notebook
      javascript
      (latex :variables
             latex-enable-auto-fill nil
             latex-enable-folding t)
      markdown
-     org
+     (org :variables
+          org-enable-reveal-js-support t)
      pdf-tools
      (python :variables
              python-test-runner '(pytest nose))
@@ -339,6 +341,9 @@ you should place your code here."
      org-wunderlist-token "8dbdbd8d8aadaa71556288534afa0fcf77b471c3685e0ce671ce00c48acd"
      org-wunderlist-file  "~/Dropbox/org/wunderlist.org"
      org-wunderlist-dir "~/Dropbox/org/org-wunderlist/")
+
+  (setq org-pomodoro-play-sounds nil)
+  (require 'ox-md)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
