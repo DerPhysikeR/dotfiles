@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: shebang
+# key: #!
+# --
+#!/usr/bin/env python
+"""
+`(insert (shell-command-to-string "echo -n $(date '+%Y-%m-%d %T')"))`
+@author: Paul Reiter
+"""

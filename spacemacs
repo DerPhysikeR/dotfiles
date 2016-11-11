@@ -344,6 +344,9 @@ you should place your code here."
 
   (setq org-pomodoro-play-sounds nil)
   (require 'ox-md)
+
+  ;; private yasnippets without warnings
+  (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
