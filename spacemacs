@@ -75,6 +75,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       org-wunderlist
+                                      ob-ipython
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -344,6 +345,11 @@ you should place your code here."
 
   (setq org-pomodoro-play-sounds nil)
   (require 'ox-md)
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)
+     (ipython . t)))
 
   ;; private yasnippets without warnings
   (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
