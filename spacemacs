@@ -353,6 +353,11 @@ you should place your code here."
 
   ;; private yasnippets without warnings
   (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+
+  ;; my snippets
+  (fset 'konjugate
+        [?0 ?d ?f tab ?k ?. ?k ?. ?k ?. ?k ?. ?k ?. ?k ?J ?A ?, escape ?J ?A ?, escape ?J ?A ?, escape ?J ?A ?, escape ?J ?A ?, escape ?J])
+
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
