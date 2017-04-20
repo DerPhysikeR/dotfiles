@@ -40,6 +40,7 @@ values."
      better-defaults
      csv
      emacs-lisp
+     extra-langs
      finance
      games
      git
