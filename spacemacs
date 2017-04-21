@@ -40,6 +40,7 @@ values."
      better-defaults
      csv
      emacs-lisp
+     ess
      finance
      games
      git
@@ -53,6 +54,7 @@ values."
      markdown
      (org :variables
           org-enable-reveal-js-support t)
+     octave
      pdf-tools
      (python :variables
              python-test-runner '(pytest nose))
@@ -67,6 +69,7 @@ values."
      syntax-checking
      themes-megapack
      ;; version-control
+     vimscript
      xkcd
      yaml
     )
