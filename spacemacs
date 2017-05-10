@@ -338,6 +338,9 @@ you should place your code here."
   ;; increase docview resolution
   (setq doc-view-resolution 144)
 
+  ;; make pdf-view usable
+  (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
+
   ;; wunderlist
   (require 'org-wunderlist)
   (setq org-wunderlist-client-id "4612b8ba2bfca55cce5f"
