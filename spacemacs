@@ -41,6 +41,7 @@ values."
      csv
      emacs-lisp
      ess
+     extra-langs
      finance
      games
      git
@@ -244,7 +245,7 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
@@ -339,6 +340,9 @@ you should place your code here."
 
   ;; increase docview resolution
   (setq doc-view-resolution 144)
+
+  ;; make pdf-view usable
+  (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
 
   ;; wunderlist
   (require 'org-wunderlist)
