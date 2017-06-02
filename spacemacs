@@ -331,7 +331,8 @@ you should place your code here."
   ;; latex paragraph object definition
   (defun my-LaTeX-mode-hook()
     (setq paragraph-start "\f\\|[   ]*$")
-    (setq paragraph-separate "[     \f]*$"))
+    (setq paragraph-separate "[     \f]*$")
+    (setq latex-enable-folding t))
   (add-hook 'LaTeX-mode-hook 'my-LaTeX-mode-hook)
 
   ;; disable smartparens
