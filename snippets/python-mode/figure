@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: figure
+# key: fig
+# --
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+ax.plot($0)
+fig.savefig()
+plt.close(fig)
