@@ -1,4 +1,4 @@
-; -*- mode: emacs-lisp -*-
+;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -36,9 +36,9 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
-     better-defaults ;; only to be used with emacs editing style
+     auto-completion ;;yasnippet
      csv
+     ;; deft ;; for quickt notetaking
      emacs-lisp
      ess
      extra-langs
@@ -48,39 +48,53 @@ values."
      helm
      html
      ipython-notebook
-     javascript
      (latex :variables
-            latex-enable-auto-fill nil
+            latex-enable-auto-fill t
             latex-enable-folding t)
      markdown
+     octave
      (org :variables
           org-enable-reveal-js-support t)
-     octave
+     pandoc
      pdf-tools
      (python :variables
              python-test-runner '(pytest nose))
      ranger
-     shell
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      (spell-checking :variables
-                     spell-checing-enable-by-default nil
-                     spell-checking-enable-auto-dict t)
+                     spell-checking-enable-auto-dictionary t
+                     spell-checking-enable-by-default nil)
      syntax-checking
-     themes-megapack ;; not necessary
-     ;; version-control
+     version-control
      vimscript
      xkcd
      yaml
-    )
+     ;; auto-completion
+     ;; better-defaults
+     ;; git
+     ;; markdown
+     ;; org
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
+     ;; syntax-checking
+     )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      org-wunderlist
-                                      ob-ipython
+                                      ;; enable support for wunderlist
+                                      ;; ;; org-wunderlist
+
+                                      ;; enable ipython support for org files
+                                      ;; ;; ob-ipython
+
+                                      ;; nicer folding for latex files
+                                      outline-magic
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -160,12 +174,17 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 18
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
+   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
+   ;; (default "SPC")
+   dotspacemacs-emacs-command-key "SPC"
+   ;; The key used for Vim Ex commands (default ":")
+   dotspacemacs-ex-command-key ":"
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
    dotspacemacs-emacs-leader-key "M-m"
@@ -173,11 +192,8 @@ values."
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m)
+   ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
-   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
-   ;; (default "SPC")
-   dotspacemacs-emacs-command-key "SPC"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
    ;; Setting it to a non-nil value, allows for separate commands under <C-i>
@@ -271,8 +287,18 @@ values."
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
    dotspacemacs-smooth-scrolling t
-   ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
-   ;; derivatives. If set to `relative', also turns on relative line numbers.
+   ;; Control line numbers activation.
+   ;; If set to `t' or `relative' line numbers are turned on in all `prog-mode' and
+   ;; `text-mode' derivatives. If set to `relative', line numbers are relative.
+   ;; This variable can also be set to a property list for finer control:
+   ;; '(:relative nil
+   ;;   :disabled-for-modes dired-mode
+   ;;                       doc-view-mode
+   ;;                       markdown-mode
+   ;;                       org-mode
+   ;;                       pdf-view-mode
+   ;;                       text-mode
+   ;;   :size-limit-kb 1000)
    ;; (default nil)
    dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
@@ -325,9 +351,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;; python word object definition
-  (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-
   ;; latex paragraph object definition
   (defun my-LaTeX-mode-hook()
     (setq paragraph-start "\f\\|[   ]*$")
@@ -335,30 +358,38 @@ you should place your code here."
     (setq latex-enable-folding t))
   (add-hook 'LaTeX-mode-hook 'my-LaTeX-mode-hook)
 
-  ;; disable smartparens
-  (remove-hook 'prog-mode-hook #'smartparens-mode)
-  (spacemacs/toggle-smartparens-globally-off)
-
-  ;; increase docview resolution
-  (setq doc-view-resolution 144)
+  ;; add better folding functionality to latex files
+  ;;https://github.com/syl20bnr/spacemacs/issues/3226
+  (add-hook 'LaTeX-mode-hook 'outline-minor-mode)
+  (eval-after-load 'outline
+    '(progn
+       (require 'outline-magic)
+       (define-key outline-minor-mode-map (kbd "<tab>") 'outline-cycle)))
 
   ;; make pdf-view usable
   (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
 
-  ;; wunderlist
-  (require 'org-wunderlist)
-  (setq org-wunderlist-client-id "4612b8ba2bfca55cce5f"
-     org-wunderlist-token "8dbdbd8d8aadaa71556288534afa0fcf77b471c3685e0ce671ce00c48acd"
-     org-wunderlist-file  "~/Dropbox/org/wunderlist.org"
-     org-wunderlist-dir "~/Dropbox/org/org-wunderlist/")
+  ;; ;; wunderlist
+  ;; (require 'org-wunderlist)
+  ;; (setq org-wunderlist-client-id "4612b8ba2bfca55cce5f"
+  ;;    org-wunderlist-token "8dbdbd8d8aadaa71556288534afa0fcf77b471c3685e0ce671ce00c48acd"
+  ;;    org-wunderlist-file  "~/Dropbox/org/wunderlist.org"
+  ;;    org-wunderlist-dir "~/Dropbox/org/org-wunderlist/")
 
+  ;; turn of extremely loud sound of the pomodoro bell
   (setq org-pomodoro-play-sounds nil)
-  (require 'ox-md)
 
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((python . t)
-     (ipython . t)))
+  ;; enable language support in org-mode
+  ;; (org-babel-do-load-languages
+  ;;  'org-babel-load-languages
+  ;;  '((python . t)
+  ;;    (ipython . t)))
+
+  ;; enable markdown exporter in org-mode
+  (eval-after-load "org"
+    '(require 'ox-md nil t))
+
+  (require 'helm-bookmark)
 
   ;; private yasnippets without warnings
   (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
@@ -366,7 +397,14 @@ you should place your code here."
   ;; my snippets
   (fset 'konjugate
         [?0 ?d ?f tab ?k ?. ?k ?. ?k ?. ?k ?. ?k ?. ?k ?J ?A ?, escape ?J ?A ?, escape ?J ?A ?, escape ?J ?A ?, escape ?J ?A ?, escape ?J])
+  ;; https://github.com/syl20bnr/spacemacs/issues/1603
+  ;; ;; disable smartparens
+  (remove-hook 'prog-mode-hook #'smartparens-mode)
+  (spacemacs/toggle-smartparens-globally-off)
 
-)
+  ;; python word object definition
+  (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  )
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
