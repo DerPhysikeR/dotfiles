@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -37,7 +37,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     better-defaults
+     better-defaults ;; only to be used with emacs editing style
      csv
      emacs-lisp
      ess
@@ -68,7 +68,7 @@ values."
                      spell-checing-enable-by-default nil
                      spell-checking-enable-auto-dict t)
      syntax-checking
-     themes-megapack
+     themes-megapack ;; not necessary
      ;; version-control
      vimscript
      xkcd
