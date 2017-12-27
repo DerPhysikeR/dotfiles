@@ -427,6 +427,35 @@ you should place your code here."
   ;; turn of extremely loud sound of the pomodoro bell
   (setq org-pomodoro-play-sounds nil)
 
+  (add-hook 'org-mode-hook (lambda ()
+                                  (evilified-state-evilify pdf-view-mode pdf-view-mode-map
+                                    ;; Navigation
+                                    "0"  'image-bol
+                                    "$"  'image-eol
+                                    "j"  'pdf-view-next-line-or-next-page
+                                    "k"  'pdf-view-previous-line-or-previous-page
+                                    "l"  'image-forward-hscroll
+                                    "h"  'image-backward-hscroll
+                                    "J"  'pdf-view-next-page
+                                    "K"  'pdf-view-previous-page
+                                    "gg"  'pdf-view-first-page
+                                    "G"  'pdf-view-last-page
+                                    "gt"  'pdf-view-goto-page
+                                    "gl"  'pdf-view-goto-label
+                                    "u" 'pdf-view-scroll-down-or-previous-page
+                                    "d" 'pdf-view-scroll-up-or-next-page
+                                    (kbd "C-u") 'pdf-view-scroll-down-or-previous-page
+                                    (kbd "C-d") 'pdf-view-scroll-up-or-next-page
+                                    (kbd "``")  'pdf-history-backward
+                                    ;; Search
+                                    "/" 'isearch-forward
+                                    "?" 'isearch-backward
+                                    ;; Actions
+                                    "r"   'pdf-view-revert-buffer
+                                    "o"   'pdf-links-action-perform
+                                    "O"   'pdf-outline
+                                    "zr"  'pdf-view-scale-reset)) 'append)
+
   ;; enable language support in org-mode
   ;; (org-babel-do-load-languages
   ;;  'org-babel-load-languages
