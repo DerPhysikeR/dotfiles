@@ -359,22 +359,22 @@ you should place your code here."
 
   ;; setup gtd according to https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
   (with-eval-after-load 'org
-    (setq org-agenda-files '("~/Dropbox/org/gtd/inbox.org"
-                             "~/Dropbox/org/gtd/gtd.org"
-                             "~/Dropbox/org/gtd/tickler.org"))
+    (setq org-agenda-files '("~/org/gtd/inbox.org"
+                             "~/org/gtd/gtd.org"
+                             "~/org/gtd/tickler.org"))
 
     (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 
     (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                   (file+headline "~/Dropbox/org/gtd/inbox.org" "Tasks")
+                                   (file+headline "~/org/gtd/inbox.org" "Tasks")
                                    "* TODO %i%?")
                                   ("T" "Tickler" entry
-                                   (file+headline "~/Dropbox/org/gtd/tickler.org" "Tickler")
+                                   (file+headline "~/org/gtd/tickler.org" "Tickler")
                                    "* %i%? \n %U")))
 
-    (setq org-refile-targets '(("~/Dropbox/org/gtd/gtd.org" :maxlevel . 3)
-                               ("~/Dropbox/org/gtd/someday.org" :level . 1)
-                               ("~/Dropbox/org/gtd/tickler.org" :maxlevel . 2)))
+    (setq org-refile-targets '(("~/org/gtd/gtd.org" :maxlevel . 3)
+                               ("~/org/gtd/someday.org" :level . 1)
+                               ("~/org/gtd/tickler.org" :maxlevel . 2)))
 
     (setq org-agenda-custom-commands
           '(("h" "At home" tags-todo "@home"
@@ -485,24 +485,17 @@ you should place your code here."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (vala-snippets vala-mode symon string-inflection pkgbuild-mode password-generator org-brain kivy-mode impatient-mode helm-purpose window-purpose imenu-list evil-org evil-lion editorconfig browse-at-remote atomic-chrome ess-smart-equals ess-R-data-view ctable ess outline-magic powershell xterm-color xkcd web-mode tagedit slim-mode shell-pop scss-mode sass-mode pug-mode multi-term less-css-mode helm-css-scss haml-mode git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter eshell-z eshell-prompt-extras esh-help emmet-mode ein skewer-mode request-deferred websocket deferred js2-mode simple-httpd diff-hl company-web web-completion-data pandoc-mode ox-pandoc ht origami deft typit mmt thrift sudoku stan-mode scad-mode qml-mode pacmacs dash-functional matlab-mode julia-mode company-auctex auctex-latexmk auctex arduino-mode 2048-game ox-reveal org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot flyspell-correct-helm flyspell-correct auto-dictionary vimrc-mode flycheck-pos-tip pos-tip flycheck-ledger flycheck dactyl-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode ledger-mode hy-mode helm-pydoc cython-mode csv-mode company-anaconda anaconda-mode pythonic yaml-mode smeargle ranger pdf-tools tablist orgit mmm-mode markdown-toc markdown-mode magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (yapfify yaml-mode xterm-color xkcd web-mode vimrc-mode typit mmt thrift tagedit sudoku stan-mode smeargle slim-mode shell-pop scss-mode scad-mode sass-mode ranger qml-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pdf-tools tablist pandoc-mode pacmacs ox-reveal ox-pandoc ht outline-magic origami orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download multi-term mmm-mode matlab-mode markdown-toc markdown-mode magit-gitflow live-py-mode less-css-mode ledger-mode hy-mode dash-functional htmlize helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-ledger flycheck evil-magit magit magit-popup git-commit ghub let-alist with-editor ess-smart-equals ess-R-data-view ctable ess julia-mode eshell-z eshell-prompt-extras esh-help emmet-mode ein skewer-mode request-deferred deferred js2-mode simple-httpd diff-hl dactyl-mode cython-mode csv-mode company-web web-completion-data company-statistics company-auctex company-anaconda company auto-yasnippet yasnippet auto-dictionary auctex atomic-chrome websocket arduino-mode anaconda-mode pythonic ac-ispell auto-complete 2048-game ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-)
