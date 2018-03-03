@@ -88,6 +88,9 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       atomic-chrome
+                                      (jellybeans-plus-theme :location (recipe
+                                                                        :fetcher github
+                                                                        :repo "jsmestad/jellybeans-plus-theme"))
                                       ;; enable support for wunderlist
                                       ;; ;; org-wunderlist
 
