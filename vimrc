@@ -2,14 +2,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'benekastah/neomake'
+" Plug 'benekastah/neomake'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'fenetikm/falcon'
 Plug 'flazz/vim-colorschemes'
+Plug 'francoiscabrol/ranger.vim'
 Plug 'freitass/todo.txt-vim'
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
@@ -22,9 +24,10 @@ Plug 'kana/vim-textobj-user'
 Plug 'kshenoy/vim-signature'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nvie/vim-flake8'
+Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'sjl/gundo.vim'
+" Plug 'scrooloose/syntastic'
+Plug 'simnalamburt/vim-mundo'
 Plug 'takac/vim-hardtime'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
@@ -33,8 +36,11 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-speeddating'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'w0rp/ale'
+Plug 'jceb/vim-orgmode'
 call plug#end()
 " https://www.youtube.com/watch?v=wlR5gYd6um0
 " enable python support
@@ -114,10 +120,11 @@ set hidden            " change buffer without saving
 set sidescroll=1      " incremental horizontal scrolling
 set splitbelow
 set splitright
+set termguicolors
 let mapleader = "\<Space>"
 noremap <Leader>M :Neomake!<CR>
 noremap <Leader>m :Neomake<CR>
-noremap <Leader>u :GundoToggle<CR>
+noremap <Leader>u :MundoToggle<CR>
 noremap <Leader>GG :GitGutterToggle<CR>
 let g:gitgutter_enabled = 0
 
@@ -131,3 +138,6 @@ if !isdirectory($HOME."/.vim/undo-dir")
 endif
 set undodir=~/.vim/undo-dir
 set undofile
+
+set shell=/bin/zsh
+
