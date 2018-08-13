@@ -60,6 +60,8 @@ let g:deoplete#enable_at_startup = 1
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'ayu-theme/ayu-vim'
 call plug#end()
 " https://www.youtube.com/watch?v=wlR5gYd6um0
 " enable python support
@@ -122,6 +124,8 @@ vnoremap <silent> # :<C-U>
 " set history=1000     "set command history to 1000
 
 " colorscheme jellybeans
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
 colorscheme minimalist
 set number            " set line numbers
 set relativenumber    " set relative line numbering to current cursor position
@@ -136,6 +140,7 @@ set hidden            " change buffer without saving
 set sidescroll=1      " incremental horizontal scrolling
 set splitbelow
 set splitright
+" enable true colors support
 " do not set termguicolors or vim + tmux changes colors
 " https://github.com/tmux/tmux/issues/699
 " set termguicolors
