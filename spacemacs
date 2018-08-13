@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     ruby
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -60,6 +61,7 @@ values."
      (python :variables
              python-test-runner '(pytest nose))
      ranger
+     restructuredtext
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -88,6 +90,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       atomic-chrome
+                                      color-theme-solarized
                                       ;; enable support for wunderlist
                                       ;; ;; org-wunderlist
 
@@ -178,7 +181,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 24
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -354,7 +357,30 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
     (setq org-want-todo-bindings t)
+
+  ;; Fix separators
+  (setq ns-use-srgb-colorspace nil)
+  ;; (setq powerline-default-separator 'utf-8)
+  ;; Theme Customizations
+  (setq theming-modifications
+      '((solarized
+        ;; Provide a sort of "on-off" modeline whereby the current buffer has a nice
+        ;; bright blue background, and all the others are in cream.
+        ;; TODO: Change to use variables here. However, got error:
+        ;; (Spacemacs) Error in dotspacemacs/user-config: Wrong type argument: stringp, pd-blue
+        (mode-line :foreground "#e9e2cb" :background "#2075c7" :inverse-video nil)
+        (powerline-active1 :foreground "#e9e2cb" :background "#2075c7" :inverse-video nil)
+        (powerline-active2 :foreground "#e9e2cb" :background "#2075c7" :inverse-video nil)
+        (mode-line-inactive :foreground "#2075c7" :background "#e9e2cb" :inverse-video nil)
+        (powerline-inactive1 :foreground "#2075c7" :background "#e9e2cb" :inverse-video nil)
+        (powerline-inactive2 :foreground "#2075c7" :background "#e9e2cb" :inverse-video nil)
+        ;; Make a really prominent helm selection line.
+        (helm-selection :foreground "white" :background "#2075c7" :inverse-video nil)
+        ;; See comment above about dotspacemacs-colorize-cursor-according-to-state.
+        (cursor :background "#b58900")
+      )))
 
 
   ;; setup gtd according to https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
@@ -490,12 +516,13 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (yapfify yaml-mode xterm-color xkcd web-mode vimrc-mode typit mmt thrift tagedit sudoku stan-mode smeargle slim-mode shell-pop scss-mode scad-mode sass-mode ranger qml-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pdf-tools tablist pandoc-mode pacmacs ox-reveal ox-pandoc ht outline-magic origami orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download multi-term mmm-mode matlab-mode markdown-toc markdown-mode magit-gitflow live-py-mode less-css-mode ledger-mode hy-mode dash-functional htmlize helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-ledger flycheck evil-magit magit magit-popup git-commit ghub let-alist with-editor ess-smart-equals ess-R-data-view ctable ess julia-mode eshell-z eshell-prompt-extras esh-help emmet-mode ein skewer-mode request-deferred deferred js2-mode simple-httpd diff-hl dactyl-mode cython-mode csv-mode company-web web-completion-data company-statistics company-auctex company-anaconda company auto-yasnippet yasnippet auto-dictionary auctex atomic-chrome websocket arduino-mode anaconda-mode pythonic ac-ispell auto-complete 2048-game ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (color-theme-solarized color-theme rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby dracula-theme doom-themes auctex-latexmk yapfify yaml-mode xterm-color xkcd web-mode vimrc-mode typit mmt thrift tagedit sudoku stan-mode smeargle slim-mode shell-pop scss-mode scad-mode sass-mode ranger qml-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pdf-tools tablist pandoc-mode pacmacs ox-reveal ox-pandoc ht outline-magic origami orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download multi-term mmm-mode matlab-mode markdown-toc markdown-mode magit-gitflow live-py-mode less-css-mode ledger-mode hy-mode dash-functional htmlize helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-ledger flycheck evil-magit magit magit-popup git-commit ghub let-alist with-editor ess-smart-equals ess-R-data-view ctable ess julia-mode eshell-z eshell-prompt-extras esh-help emmet-mode ein skewer-mode request-deferred deferred js2-mode simple-httpd diff-hl dactyl-mode cython-mode csv-mode company-web web-completion-data company-statistics company-auctex company-anaconda company auto-yasnippet yasnippet auto-dictionary auctex atomic-chrome websocket arduino-mode anaconda-mode pythonic ac-ispell auto-complete 2048-game ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(term ((t nil))))
