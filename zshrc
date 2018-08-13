@@ -100,3 +100,4 @@ alias vimdiff="nvim -d"
 export EDITOR=nvim
 # export FZF_DEFAULT_OPTS='--bind ctrl-t:down,ctrl-s:up'
 export FZF_DEFAULT_OPTS='--bind ctrl-t:ctrl-j,ctrl-s:ctrl-k'
+eval $(thefuck --alias)
