@@ -168,6 +168,16 @@ nnoremap <Leader>/ :Ag<CR>
 nnoremap <Leader>" <C-w>s :terminal<CR>A
 nnoremap <Leader>' <C-w>s :cd %:p:h<CR> :terminal<CR>A
 
+nnoremap <Leader>l1 1gt
+nnoremap <Leader>l2 2gt
+nnoremap <Leader>l3 3gt
+nnoremap <Leader>l4 4gt
+nnoremap <Leader>l5 5gt
+nnoremap <Leader>l6 6gt
+nnoremap <Leader>l7 7gt
+nnoremap <Leader>l8 8gt
+nnoremap <Leader>l9 9gt
+
 " switch to insert mode in :terminal and make pane switching possible
 " https://vi.stackexchange.com/questions/3670/how-to-enter-insert-mode-when-entering-neovim-terminal-pane
 " tnoremap <C-h> <C-\><C-n><C-w>h
