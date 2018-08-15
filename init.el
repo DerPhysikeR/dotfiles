@@ -32,13 +32,30 @@
   :config
   (evil-mode t)
   (modify-syntax-entry ?_ "w")) ; make "_" a word character
+
+(defun switch-to-previous-buffer ()
+  "Switch to previously open buffer.
+Repeated invocations toggle between the two most recently open buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+
 (use-package evil-leader
   :config (global-evil-leader-mode)
           (evil-leader/set-leader "<SPC>"))
 	  (evil-leader/set-key
 	    "fs" 'save-buffer
 	    "gs" 'magit
-	    "ad" (lambda () (interactive) (dired default-directory)))
+	    "ad" (lambda () (interactive) (dired default-directory))
+	    "bb" 'buffer-menu
+	    "<tab>" 'switch-to-previous-buffer
+	    "wh" 'evil-window-left
+	    "wj" 'evil-window-down
+	    "wk" 'evil-window-up
+	    "wl" 'evil-window-right
+	    "wd" 'delete-window
+	    "wv" 'split-window-horizontally
+	    "ws" 'split-window-vertically
+	    )
 (use-package evil-surround :after evil :config (global-evil-surround-mode 1))
 (use-package evil-numbers :after evil) ; bind it to a key
 (use-package evil-exchange :after evil :config (evil-exchange-install))
