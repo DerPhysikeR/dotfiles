@@ -167,7 +167,8 @@ nnoremap <Leader>? :FZF<CR>
 nnoremap <Leader>/ :Ag<CR>
 nnoremap <Leader>" <C-w>s :terminal<CR>A
 nnoremap <Leader>' <C-w>s :cd %:p:h<CR> :terminal<CR>A
-
+nnoremap <Leader>ts :ALEToggle<CR>
+nnoremap <Leader>feR :source ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>l1 1gt
 nnoremap <Leader>l2 2gt
 nnoremap <Leader>l3 3gt
