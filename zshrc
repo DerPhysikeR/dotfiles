@@ -1,3 +1,4 @@
+export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -7,7 +8,11 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="refined"
+# ZSH_THEME="avit"
+#
+# ZSH_THEME="refined"
+# ZSH_THEME="agnoster"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -93,11 +98,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+set -o vi
 alias vim="nvim"
 alias vi="nvim"
-alias vimdiff="nvim -d"
+alias vimdiff='nvim -d'
 export EDITOR=nvim
-# export FZF_DEFAULT_OPTS='--bind ctrl-t:down,ctrl-s:up'
-export FZF_DEFAULT_OPTS='--bind ctrl-t:ctrl-j,ctrl-s:ctrl-k'
 eval $(thefuck --alias)
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+export PATH=$PATH:~/bin
+eval `keychain --eval --agents ssh id_rsa`
+# export FZF_DEFAULT_OPTS='--bind ctrl-t:ctrl-j,ctrl-s:ctrl-k'
+# alias 'git dog'='git log --all --decorate --one-line --graph'
+alias 'gitlog'='git log --all --decorate --oneline --graph'

@@ -2,7 +2,7 @@
 # name: shebang
 # key: #!
 # --
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 `(insert (shell-command-to-string "echo -n $(date '+%Y-%m-%d %T')"))`
 @author: Paul Reiter
