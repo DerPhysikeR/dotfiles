@@ -1,0 +1,6 @@
+[user]
+	name = Paul Reiter
+	email = reiter.paul@gmail.com
+	signingkey = 173E27DBEEF8DEFE
+[commit]
+	gpgsign = true
