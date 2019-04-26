@@ -22,7 +22,7 @@ ZSH_THEME="refined"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -107,7 +107,7 @@ eval $(thefuck --alias)
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 export PATH=$PATH:~/bin
-eval `keychain --eval --agents ssh id_rsa`
+# eval `keychain --eval --agents ssh id_rsa`
 # export FZF_DEFAULT_OPTS='--bind ctrl-t:ctrl-j,ctrl-s:ctrl-k'
 # alias 'git dog'='git log --all --decorate --one-line --graph'
 alias 'gitlog'='git log --all --decorate --oneline --graph'
